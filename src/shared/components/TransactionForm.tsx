@@ -1,11 +1,11 @@
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import {
-  TransactionFormValues,
   transactionCategorySchema,
   transactionFormSchema,
   transactionTypeSchema,
 } from '../../entities/transaction.types.ts'
+import type { TransactionFormValues } from '../../entities/transaction.types.ts'
 
 type Props = {
   defaultValues?: Partial<TransactionFormValues>
@@ -29,14 +29,14 @@ export function TransactionForm({ defaultValues, onSubmit, submitting }: Props) 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="grid gap-4 md:grid-cols-2"
+      className="grid gap-5 md:grid-cols-2"
     >
-      <div className="space-y-1">
-        <label className="block text-sm font-medium text-slate-200">
+      <div className="space-y-1.5">
+        <label className="block text-[13px] font-medium text-zinc-200">
           Название
         </label>
         <input
-          className="w-full rounded border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-100 outline-none ring-emerald-500/60 focus:ring"
+          className="w-full rounded-2xl border border-white/10 bg-zinc-900/80 px-3.5 py-2.5 text-[13px] text-zinc-50 outline-none ring-1 ring-transparent transition focus:border-white/30 focus:ring-white/30 placeholder:text-zinc-500"
           {...register('title')}
           placeholder="Например, зарплата или кофе"
         />
@@ -45,12 +45,12 @@ export function TransactionForm({ defaultValues, onSubmit, submitting }: Props) 
         )}
       </div>
 
-      <div className="space-y-1">
-        <label className="block text-sm font-medium text-slate-200">
+      <div className="space-y-1.5">
+        <label className="block text-[13px] font-medium text-zinc-200">
           Сумма
         </label>
         <input
-          className="w-full rounded border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-100 outline-none ring-emerald-500/60 focus:ring"
+          className="w-full rounded-2xl border border-white/10 bg-zinc-900/80 px-3.5 py-2.5 text-[13px] text-zinc-50 outline-none ring-1 ring-transparent transition focus:border-white/30 focus:ring-white/30 placeholder:text-zinc-500"
           {...register('amount')}
           placeholder="0.00"
         />
@@ -59,12 +59,12 @@ export function TransactionForm({ defaultValues, onSubmit, submitting }: Props) 
         )}
       </div>
 
-      <div className="space-y-1">
-        <label className="block text-sm font-medium text-slate-200">
+      <div className="space-y-1.5">
+        <label className="block text-[13px] font-medium text-zinc-200">
           Категория
         </label>
         <select
-          className="w-full rounded border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-100 outline-none ring-emerald-500/60 focus:ring"
+          className="w-full rounded-2xl border border-white/10 bg-zinc-900/80 px-3.5 py-2.5 text-[13px] text-zinc-50 outline-none ring-1 ring-transparent transition focus:border-white/30 focus:ring-white/30"
           {...register('category')}
         >
           <option value="">Выберите категорию</option>
@@ -79,12 +79,12 @@ export function TransactionForm({ defaultValues, onSubmit, submitting }: Props) 
         )}
       </div>
 
-      <div className="space-y-1">
-        <label className="block text-sm font-medium text-slate-200">
+      <div className="space-y-1.5">
+        <label className="block text-[13px] font-medium text-zinc-200">
           Тип
         </label>
         <select
-          className="w-full rounded border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-100 outline-none ring-emerald-500/60 focus:ring"
+          className="w-full rounded-2xl border border-white/10 bg-zinc-900/80 px-3.5 py-2.5 text-[13px] text-zinc-50 outline-none ring-1 ring-transparent transition focus:border-white/30 focus:ring-white/30"
           {...register('type')}
         >
           <option value="">Выберите тип</option>
@@ -99,13 +99,13 @@ export function TransactionForm({ defaultValues, onSubmit, submitting }: Props) 
         )}
       </div>
 
-      <div className="space-y-1">
-        <label className="block text-sm font-medium text-slate-200">
+      <div className="space-y-1.5">
+        <label className="block text-[13px] font-medium text-zinc-200">
           Дата
         </label>
         <input
           type="date"
-          className="w-full rounded border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-100 outline-none ring-emerald-500/60 focus:ring"
+          className="w-full rounded-2xl border border-white/10 bg-zinc-900/80 px-3.5 py-2.5 text-[13px] text-zinc-50 outline-none ring-1 ring-transparent transition focus:border-white/30 focus:ring-white/30"
           {...register('date')}
         />
         {errors.date && (
@@ -113,13 +113,13 @@ export function TransactionForm({ defaultValues, onSubmit, submitting }: Props) 
         )}
       </div>
 
-      <div className="space-y-1 md:col-span-2">
-        <label className="block text-sm font-medium text-slate-200">
+      <div className="space-y-1.5 md:col-span-2">
+        <label className="block text-[13px] font-medium text-zinc-200">
           Комментарий
         </label>
         <textarea
           rows={3}
-          className="w-full resize-none rounded border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-100 outline-none ring-emerald-500/60 focus:ring"
+          className="w-full resize-none rounded-2xl border border-white/10 bg-zinc-900/80 px-3.5 py-2.5 text-[13px] text-zinc-50 outline-none ring-1 ring-transparent transition focus:border-white/30 focus:ring-white/30 placeholder:text-zinc-500"
           {...register('note')}
           placeholder="Необязательно"
         />
@@ -128,11 +128,11 @@ export function TransactionForm({ defaultValues, onSubmit, submitting }: Props) 
         )}
       </div>
 
-      <div className="md:col-span-2 flex justify-end gap-2 pt-2">
+      <div className="md:col-span-2 flex justify-end gap-3 pt-3">
         <button
           type="submit"
           disabled={submitting}
-          className="inline-flex items-center rounded bg-emerald-500 px-4 py-2 text-sm font-medium text-slate-950 shadow hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-70"
+          className="inline-flex items-center rounded-full bg-zinc-50 px-5 py-2 text-[13px] font-medium text-zinc-900 shadow-sm shadow-black/40 transition hover:bg-white disabled:cursor-wait disabled:opacity-70"
         >
           {submitting ? 'Сохраняем…' : 'Сохранить'}
         </button>

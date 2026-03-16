@@ -35,7 +35,7 @@ export function AnalyticsPage() {
 
       {isLoading && (
         <Card>
-          <p className="text-sm text-slate-300">Строим графики…</p>
+          <p className="text-sm text-zinc-300">Строим графики…</p>
         </Card>
       )}
 
@@ -49,35 +49,35 @@ export function AnalyticsPage() {
 
       {!isLoading && !isError && data && data.length === 0 && (
         <Card>
-          <p className="text-sm text-slate-300">
+          <p className="text-sm text-zinc-300">
             Пока нет данных для аналитики. Добавьте несколько транзакций.
           </p>
         </Card>
       )}
 
       {!isLoading && !isError && data && data.length > 0 && (
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-5 md:grid-cols-2">
           <Card>
-            <h2 className="mb-3 text-sm font-semibold text-slate-100">
+            <h2 className="mb-3 text-[13px] font-semibold text-zinc-100">
               Баланс по категориям
             </h2>
             <div className="h-64">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={categoryData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#1f2937" />
-                  <XAxis dataKey="category" stroke="#9ca3af" />
-                  <YAxis stroke="#9ca3af" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#27272a" />
+                  <XAxis dataKey="category" stroke="#a1a1aa" />
+                  <YAxis stroke="#a1a1aa" />
                   <Tooltip
                     contentStyle={{ backgroundColor: '#020617', borderColor: '#1f2937' }}
                   />
-                  <Bar dataKey="total" fill="#22c55e" />
+                  <Bar dataKey="total" radius={[6, 6, 0, 0]} fill="#22c55e" />
                 </BarChart>
               </ResponsiveContainer>
             </div>
           </Card>
 
           <Card>
-            <h2 className="mb-3 text-sm font-semibold text-slate-100">
+            <h2 className="mb-3 text-[13px] font-semibold text-zinc-100">
               Доходы vs расходы
             </h2>
             <div className="h-64">
@@ -95,7 +95,7 @@ export function AnalyticsPage() {
                     ))}
                   </Pie>
                   <Tooltip
-                    contentStyle={{ backgroundColor: '#020617', borderColor: '#1f2937' }}
+                    contentStyle={{ backgroundColor: '#020617', borderColor: '#18181b' }}
                   />
                   <Legend />
                 </PieChart>
@@ -104,17 +104,17 @@ export function AnalyticsPage() {
           </Card>
 
           <Card>
-            <h2 className="mb-3 text-sm font-semibold text-slate-100">
+            <h2 className="mb-3 text-[13px] font-semibold text-zinc-100">
               Динамика по датам
             </h2>
             <div className="h-64">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={dateData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#1f2937" />
-                  <XAxis dataKey="date" stroke="#9ca3af" />
-                  <YAxis stroke="#9ca3af" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#27272a" />
+                  <XAxis dataKey="date" stroke="#a1a1aa" />
+                  <YAxis stroke="#a1a1aa" />
                   <Tooltip
-                    contentStyle={{ backgroundColor: '#020617', borderColor: '#1f2937' }}
+                    contentStyle={{ backgroundColor: '#020617', borderColor: '#18181b' }}
                   />
                   <Line
                     type="monotone"

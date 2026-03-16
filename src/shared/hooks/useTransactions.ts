@@ -6,7 +6,7 @@ import {
   getTransactions,
   updateTransaction,
 } from '../../entities/transaction.api.ts'
-import { TransactionFormValues } from '../../entities/transaction.types.ts'
+import type { TransactionFormValues } from '../../entities/transaction.types.ts'
 
 const TRANSACTIONS_KEY = ['transactions']
 

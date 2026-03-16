@@ -1,4 +1,4 @@
-import { Transaction, TransactionFormValues } from './transaction.types.ts'
+import type { Transaction, TransactionFormValues } from './transaction.types.ts'
 import { v4 as uuid } from 'uuid'
 
 const STORAGE_KEY = 'finance-flow:transactions'

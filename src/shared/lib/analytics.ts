@@ -1,4 +1,4 @@
-import { Transaction } from '../../entities/transaction.types.ts'
+import type { Transaction } from '../../entities/transaction.types.ts'
 
 export function groupByCategory(transactions: Transaction[]) {
   const map = new Map<string, number>()

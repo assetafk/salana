@@ -22,9 +22,7 @@ export const transactionSchema = z.object({
     .min(3, 'Название должно содержать минимум 3 символа')
     .max(120, 'Название не должно быть длиннее 120 символов'),
   amount: z
-    .number({
-      invalid_type_error: 'Сумма должна быть числом',
-    })
+    .number()
     .positive('Сумма должна быть больше нуля'),
   category: transactionCategorySchema,
   type: transactionTypeSchema,
