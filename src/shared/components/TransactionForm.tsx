@@ -32,11 +32,11 @@ export function TransactionForm({ defaultValues, onSubmit, submitting }: Props) 
       className="grid gap-5 md:grid-cols-2"
     >
       <div className="space-y-1.5">
-        <label className="block text-[13px] font-medium text-zinc-200">
+        <label className="block text-[13px] font-medium text-zinc-800">
           Название
         </label>
         <input
-          className="w-full rounded-2xl border border-white/10 bg-zinc-900/80 px-3.5 py-2.5 text-[13px] text-zinc-50 outline-none ring-1 ring-transparent transition focus:border-white/30 focus:ring-white/30 placeholder:text-zinc-500"
+          className="w-full rounded-2xl border border-zinc-200 bg-white px-3.5 py-2.5 text-[13px] text-zinc-900 outline-none ring-1 ring-transparent transition focus:border-zinc-900 focus:ring-zinc-900/10 placeholder:text-zinc-400"
           {...register('title')}
           placeholder="Например, зарплата или кофе"
         />
@@ -46,11 +46,11 @@ export function TransactionForm({ defaultValues, onSubmit, submitting }: Props) 
       </div>
 
       <div className="space-y-1.5">
-        <label className="block text-[13px] font-medium text-zinc-200">
+        <label className="block text-[13px] font-medium text-zinc-800">
           Сумма
         </label>
         <input
-          className="w-full rounded-2xl border border-white/10 bg-zinc-900/80 px-3.5 py-2.5 text-[13px] text-zinc-50 outline-none ring-1 ring-transparent transition focus:border-white/30 focus:ring-white/30 placeholder:text-zinc-500"
+          className="w-full rounded-2xl border border-zinc-200 bg-white px-3.5 py-2.5 text-[13px] text-zinc-900 outline-none ring-1 ring-transparent transition focus:border-zinc-900 focus:ring-zinc-900/10 placeholder:text-zinc-400"
           {...register('amount')}
           placeholder="0.00"
         />
@@ -60,11 +60,11 @@ export function TransactionForm({ defaultValues, onSubmit, submitting }: Props) 
       </div>
 
       <div className="space-y-1.5">
-        <label className="block text-[13px] font-medium text-zinc-200">
+        <label className="block text-[13px] font-medium text-zinc-800">
           Категория
         </label>
         <select
-          className="w-full rounded-2xl border border-white/10 bg-zinc-900/80 px-3.5 py-2.5 text-[13px] text-zinc-50 outline-none ring-1 ring-transparent transition focus:border-white/30 focus:ring-white/30"
+          className="w-full rounded-2xl border border-zinc-200 bg-white px-3.5 py-2.5 text-[13px] text-zinc-900 outline-none ring-1 ring-transparent transition focus:border-zinc-900 focus:ring-zinc-900/10"
           {...register('category')}
         >
           <option value="">Выберите категорию</option>
@@ -80,11 +80,11 @@ export function TransactionForm({ defaultValues, onSubmit, submitting }: Props) 
       </div>
 
       <div className="space-y-1.5">
-        <label className="block text-[13px] font-medium text-zinc-200">
+        <label className="block text-[13px] font-medium text-zinc-800">
           Тип
         </label>
         <select
-          className="w-full rounded-2xl border border-white/10 bg-zinc-900/80 px-3.5 py-2.5 text-[13px] text-zinc-50 outline-none ring-1 ring-transparent transition focus:border-white/30 focus:ring-white/30"
+          className="w-full rounded-2xl border border-zinc-200 bg-white px-3.5 py-2.5 text-[13px] text-zinc-900 outline-none ring-1 ring-transparent transition focus:border-zinc-900 focus:ring-zinc-900/10"
           {...register('type')}
         >
           <option value="">Выберите тип</option>
@@ -100,12 +100,12 @@ export function TransactionForm({ defaultValues, onSubmit, submitting }: Props) 
       </div>
 
       <div className="space-y-1.5">
-        <label className="block text-[13px] font-medium text-zinc-200">
+        <label className="block text-[13px] font-medium text-zinc-800">
           Дата
         </label>
         <input
           type="date"
-          className="w-full rounded-2xl border border-white/10 bg-zinc-900/80 px-3.5 py-2.5 text-[13px] text-zinc-50 outline-none ring-1 ring-transparent transition focus:border-white/30 focus:ring-white/30"
+          className="w-full rounded-2xl border border-zinc-200 bg-white px-3.5 py-2.5 text-[13px] text-zinc-900 outline-none ring-1 ring-transparent transition focus:border-zinc-900 focus:ring-zinc-900/10"
           {...register('date')}
         />
         {errors.date && (
@@ -114,12 +114,12 @@ export function TransactionForm({ defaultValues, onSubmit, submitting }: Props) 
       </div>
 
       <div className="space-y-1.5 md:col-span-2">
-        <label className="block text-[13px] font-medium text-zinc-200">
+        <label className="block text-[13px] font-medium text-zinc-800">
           Комментарий
         </label>
         <textarea
           rows={3}
-          className="w-full resize-none rounded-2xl border border-white/10 bg-zinc-900/80 px-3.5 py-2.5 text-[13px] text-zinc-50 outline-none ring-1 ring-transparent transition focus:border-white/30 focus:ring-white/30 placeholder:text-zinc-500"
+          className="w-full resize-none rounded-2xl border border-zinc-200 bg-white px-3.5 py-2.5 text-[13px] text-zinc-900 outline-none ring-1 ring-transparent transition focus:border-zinc-900 focus:ring-zinc-900/10 placeholder:text-zinc-400"
           {...register('note')}
           placeholder="Необязательно"
         />
@@ -132,7 +132,7 @@ export function TransactionForm({ defaultValues, onSubmit, submitting }: Props) 
         <button
           type="submit"
           disabled={submitting}
-          className="inline-flex items-center rounded-full bg-zinc-50 px-5 py-2 text-[13px] font-medium text-zinc-900 shadow-sm shadow-black/40 transition hover:bg-white disabled:cursor-wait disabled:opacity-70"
+          className="inline-flex items-center rounded-full bg-zinc-900 px-5 py-2 text-[13px] font-medium text-zinc-50 shadow-sm shadow-black/10 transition hover:bg-black disabled:cursor-wait disabled:opacity-70"
         >
           {submitting ? 'Сохраняем…' : 'Сохранить'}
         </button>

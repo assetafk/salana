@@ -35,7 +35,7 @@ export function AnalyticsPage() {
 
       {isLoading && (
         <Card>
-          <p className="text-sm text-zinc-300">Строим графики…</p>
+          <p className="text-sm text-zinc-500">Строим графики…</p>
         </Card>
       )}
 
@@ -49,7 +49,7 @@ export function AnalyticsPage() {
 
       {!isLoading && !isError && data && data.length === 0 && (
         <Card>
-          <p className="text-sm text-zinc-300">
+          <p className="text-sm text-zinc-500">
             Пока нет данных для аналитики. Добавьте несколько транзакций.
           </p>
         </Card>
