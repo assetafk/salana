@@ -1,9 +1,10 @@
 import { Outlet, NavLink } from 'react-router-dom'
+import { InteractiveBackground } from './shared/components/Background.tsx'
 
 function App() {
   return (
     <div className="min-h-screen bg-zinc-50 text-zinc-900">
-      <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_top,_#e5e7eb,_transparent_55%),radial-gradient(circle_at_bottom,_#d4d4d8,_transparent_55%)]" />
+      <InteractiveBackground />
       <header className="relative border-b border-zinc-200 bg-white/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <span className="flex items-center gap-2 text-sm font-semibold tracking-tight text-zinc-900">

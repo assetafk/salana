@@ -11,13 +11,13 @@ export function TransactionsListPage() {
     <PageContainer>
       <section className="grid gap-6 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] items-center">
         <div className="space-y-4">
-          <div className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/70 px-3 py-1 text-[11px] text-zinc-600 shadow-sm shadow-black/5">
+          <div className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/80 px-3 py-1 text-[11px] text-zinc-600 shadow-sm shadow-black/5">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 shadow-[0_0_0_4px_rgba(34,197,94,0.4)]" />
-            Реальный контроль над личными финансами
+            Легкий контроль над личными финансами
           </div>
           <PageTitle
-            title="Управляйте денежным потоком без лишнего шума"
-            subtitle="Единый экран, чтобы видеть каждую транзакцию, баланс по категориям и динамику за день."
+            title="Видно всё, что важно для денег."
+            subtitle="Один аккуратный экран для транзакций, категорий и динамики — без шумных таблиц и лишних настроек."
           />
           <div className="flex flex-wrap items-center gap-3 pt-2">
             <Link
