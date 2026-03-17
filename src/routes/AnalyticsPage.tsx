@@ -58,15 +58,15 @@ export function AnalyticsPage() {
       {!isLoading && !isError && data && data.length > 0 && (
         <div className="grid gap-5 md:grid-cols-2">
           <Card>
-            <h2 className="mb-3 text-[13px] font-semibold text-zinc-100">
+            <h2 className="mb-3 text-[13px] font-semibold text-zinc-900">
               Баланс по категориям
             </h2>
-            <div className="h-64">
+            <div className="h-56 sm:h-64">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={categoryData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#27272a" />
-                  <XAxis dataKey="category" stroke="#a1a1aa" />
-                  <YAxis stroke="#a1a1aa" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e4e4e7" />
+                  <XAxis dataKey="category" stroke="#71717a" />
+                  <YAxis stroke="#71717a" />
                   <Tooltip
                     contentStyle={{ backgroundColor: '#020617', borderColor: '#1f2937' }}
                   />
@@ -77,10 +77,10 @@ export function AnalyticsPage() {
           </Card>
 
           <Card>
-            <h2 className="mb-3 text-[13px] font-semibold text-zinc-100">
+            <h2 className="mb-3 text-[13px] font-semibold text-zinc-900">
               Доходы vs расходы
             </h2>
-            <div className="h-64">
+            <div className="h-56 sm:h-64">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
@@ -95,7 +95,7 @@ export function AnalyticsPage() {
                     ))}
                   </Pie>
                   <Tooltip
-                    contentStyle={{ backgroundColor: '#020617', borderColor: '#18181b' }}
+                    contentStyle={{ backgroundColor: '#ffffff', borderColor: '#e4e4e7' }}
                   />
                   <Legend />
                 </PieChart>
@@ -104,17 +104,17 @@ export function AnalyticsPage() {
           </Card>
 
           <Card>
-            <h2 className="mb-3 text-[13px] font-semibold text-zinc-100">
+            <h2 className="mb-3 text-[13px] font-semibold text-zinc-900">
               Динамика по датам
             </h2>
-            <div className="h-64">
+            <div className="h-56 sm:h-64">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={dateData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#27272a" />
-                  <XAxis dataKey="date" stroke="#a1a1aa" />
-                  <YAxis stroke="#a1a1aa" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e4e4e7" />
+                  <XAxis dataKey="date" stroke="#71717a" />
+                  <YAxis stroke="#71717a" />
                   <Tooltip
-                    contentStyle={{ backgroundColor: '#020617', borderColor: '#18181b' }}
+                    contentStyle={{ backgroundColor: '#ffffff', borderColor: '#e4e4e7' }}
                   />
                   <Line
                     type="monotone"
