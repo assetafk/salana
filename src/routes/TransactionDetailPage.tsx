@@ -49,13 +49,13 @@ export function TransactionDetailPage() {
 
   return (
     <PageContainer>
-      <div className="flex items-center justify-between gap-3">
+      <div className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
         <PageTitle
           title="Транзакция"
           subtitle="Измените детали движения денег"
         />
         <button
-          className="rounded border border-rose-500/70 px-3 py-1 text-xs text-rose-300 hover:bg-rose-500/10"
+          className="rounded-full border border-rose-500/70 px-3 py-1 text-xs text-rose-600 hover:bg-rose-500/10"
           onClick={async () => {
             if (!id) return
             await deleteMutation.mutateAsync(id)
