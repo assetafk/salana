@@ -9,8 +9,8 @@ export function TransactionsListPage() {
 
   return (
     <PageContainer>
-      <section className="grid gap-6 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] items-center">
-        <div className="space-y-4">
+      <section className="grid gap-8 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] md:items-center">
+        <div className="space-y-5">
           <div className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/80 px-3 py-1 text-[11px] text-zinc-600 shadow-sm shadow-black/5">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 shadow-[0_0_0_4px_rgba(34,197,94,0.4)]" />
             Легкий контроль над личными финансами
@@ -54,7 +54,7 @@ export function TransactionsListPage() {
                   Live
                 </span>
               </div>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid gap-3 sm:grid-cols-2">
                 <div className="rounded-2xl bg-white/80 p-3 shadow-[0_14px_30px_rgba(0,0,0,0.06)]">
                   <div className="text-[11px] text-zinc-500">Чистый поток</div>
                   <div className="mt-1 text-lg font-semibold text-zinc-900">
@@ -74,7 +74,7 @@ export function TransactionsListPage() {
                   </div>
                 </div>
               </div>
-              <div className="h-16 rounded-2xl bg-gradient-to-r from-emerald-400/35 via-sky-400/30 to-transparent" />
+              <div className="h-14 rounded-2xl bg-gradient-to-r from-emerald-400/35 via-sky-400/30 to-transparent sm:h-16" />
             </div>
           </Card>
         </div>
@@ -95,57 +95,59 @@ export function TransactionsListPage() {
 
         {!isLoading && !isError && data && data.length > 0 && (
           <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white/60">
-            <table className="min-w-full text-left text-xs">
-              <thead className="border-b border-zinc-200 bg-zinc-50 text-[11px] uppercase tracking-[0.16em] text-zinc-500">
+            <div className="-mx-4 overflow-x-auto sm:mx-0">
+              <table className="min-w-full table-fixed text-left text-[11px] sm:text-xs">
+                <thead className="border-b border-zinc-200 bg-zinc-50 text-[11px] uppercase tracking-[0.16em] text-zinc-500">
                 <tr>
-                  <th className="px-4 py-2.5">Дата</th>
-                  <th className="px-4 py-2.5">Название</th>
-                  <th className="px-4 py-2.5">Категория</th>
-                  <th className="px-4 py-2.5 text-right">Сумма</th>
-                  <th className="px-4 py-2.5 text-right">Действия</th>
+                  <th className="w-24 px-4 py-2.5">Дата</th>
+                  <th className="w-40 px-4 py-2.5">Название</th>
+                  <th className="w-32 px-4 py-2.5">Категория</th>
+                  <th className="w-24 px-4 py-2.5 text-right">Сумма</th>
+                  <th className="w-32 px-4 py-2.5 text-right">Действия</th>
                 </tr>
               </thead>
-              <tbody>
-                {data.map((t) => (
-                  <tr
-                    key={t.id}
-                    className="border-b border-zinc-100 last:border-0 odd:bg-zinc-50 hover:bg-zinc-100/70"
-                  >
-                    <td className="px-4 py-2.5 text-[11px] text-zinc-500">
-                      {new Date(t.date).toLocaleDateString()}
-                    </td>
-                    <td className="px-4 py-2.5 text-[13px] text-zinc-900">
-                      {t.title}
-                    </td>
-                    <td className="px-4 py-2.5 text-[11px] text-zinc-600">
-                      {t.category}
-                    </td>
-                    <td
-                      className={`px-4 py-2.5 text-right text-[13px] font-medium ${
-                        t.type === 'income' ? 'text-emerald-400' : 'text-rose-400'
-                      }`}
+                <tbody>
+                  {data.map((t) => (
+                    <tr
+                      key={t.id}
+                      className="border-b border-zinc-100 last:border-0 odd:bg-zinc-50 hover:bg-zinc-100/70"
                     >
-                      {t.type === 'income' ? '+' : '-'}
-                      {t.amount.toFixed(2)}
-                    </td>
-                    <td className="px-4 py-2.5 text-right text-[11px]">
-                      <button
-                        className="mr-2 rounded-full border border-zinc-300 px-3 py-1 text-zinc-800 shadow-sm shadow-black/5 transition hover:bg-white"
-                        onClick={() => navigate(`/transactions/${t.id}`)}
+                      <td className="px-4 py-2.5 text-[11px] text-zinc-500">
+                        {new Date(t.date).toLocaleDateString()}
+                      </td>
+                      <td className="truncate px-4 py-2.5 text-[13px] text-zinc-900">
+                        {t.title}
+                      </td>
+                      <td className="px-4 py-2.5 text-[11px] text-zinc-600">
+                        {t.category}
+                      </td>
+                      <td
+                        className={`px-4 py-2.5 text-right text-[13px] font-medium ${
+                          t.type === 'income' ? 'text-emerald-400' : 'text-rose-400'
+                        }`}
                       >
-                        Открыть
-                      </button>
-                      <button
-                        className="rounded-full border border-rose-500/60 px-3 py-1 text-rose-600 shadow-sm shadow-black/5 transition hover:bg-rose-500/10"
-                        onClick={() => deleteMutation.mutate(t.id)}
-                      >
-                        Удалить
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                        {t.type === 'income' ? '+' : '-'}
+                        {t.amount.toFixed(2)}
+                      </td>
+                      <td className="px-4 py-2.5 text-right text-[11px]">
+                        <button
+                          className="mr-2 rounded-full border border-zinc-300 px-3 py-1 text-zinc-800 shadow-sm shadow-black/5 transition hover:bg-white"
+                          onClick={() => navigate(`/transactions/${t.id}`)}
+                        >
+                          Открыть
+                        </button>
+                        <button
+                          className="mt-1 inline-flex rounded-full border border-rose-500/60 px-3 py-1 text-rose-600 shadow-sm shadow-black/5 transition hover:bg-rose-500/10 sm:mt-0"
+                          onClick={() => deleteMutation.mutate(t.id)}
+                        >
+                          Удалить
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         )}
       </Card>
