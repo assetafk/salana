@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: finance-flow-api
+  labels:
+    app: finance-flow-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: finance-flow-api
+  template:
+    metadata:
+      labels:
+        app: finance-flow-api
+    spec:
+      containers:
+        - name: api
+          image: YOUR_REGISTRY/finance-flow-api:latest
+          imagePullPolicy: Always
+          workingDir: /app/backend
+          ports:
+            - containerPort: 8000
+          env:
+            - name: ENV
+              value: "production"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: finance-flow-api
+  labels:
+    app: finance-flow-api
+spec:
+  selector:
+    app: finance-flow-api
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8000
+  type: ClusterIP
+
